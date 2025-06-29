@@ -61,6 +61,7 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
 -	Remove duplicate user entries.
   
 ### C. category
+
 -	Split hierarchical values using delimiter `|` into:
     -	`MainCategory, SubCategory1, SubCategory2`.
 -	Trim whitespace, capitalize, and standardize category names.
@@ -84,6 +85,7 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
   `= Text.Start([product_name], 30) & "...".`
 
 **Other Data Preparation Tasks**
+
 -	Convert actual_price, discounted_price, and rating columns from text to numerical types.
 -	Handle missing values in rating_count by replacing them with 0.
 -	Create derived columns for easier analysis:
@@ -95,65 +97,80 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
         -	`IF([actual_price] <= 500, "200–500"`,
         -	`IF([actual_price] > 500, "Above 500", "Blank")))`
 
-Step 2: Data Analysis Using Pivot Tables- see attached Visualization Dashboard for results
-1.	Average Discount by Category:
-o	Result: 46%
-o	Rows: category | Values: Average of discount_percentage.
-2.	Products per Category:
-o	Result: 73,614
-o	Rows: category | Values: Count of product_id.
-3.	Total Reviews per Category:
-o	Result: 1,029,234,871
-o	Values: Sum of rating_count.
-4.	Highest Rated Products:
-o	E.g., Syncwire Ltg To USB Cable, Amazon Basics Wireless Mouse, Redtech USB-C Cable
-o	Rating: 5.0
-5.	Average Actual vs Discounted Price by Category:
-o	Avg Actual: £4,491 | Avg Discounted: £2,473
-6.	Top Reviewed Products:
-o	E.g., Aircase Laptop Bag, Spigen Screen Protector
-o	Review Count: 192
-7.	Products with ≥50% Discount:
-o	Count: 32,767
-8.	Rating Distribution:
-o	3.0: 193 | 4.0: 8,296 | 5.0: 90
-9.	Total Potential Revenue:
-o	Sum of actual_price * rating_count per category.
-10.	Unique Products by Price Range:
-o	Buckets: Under 200, 200–500, Above 500
-11.	Rating vs Discount Relationship:
-o	Use a scatter plot:
-	X-axis: discount_percentage
-	Y-axis: rating
-12.	Products with <1,000 Reviews:
-o	Use a filter or formula: =IF(rating_count < 1000, 1, 0)
-13.	Categories with Highest Discounts:
-o	Use Pivot Table: Max of discount_percentage
-14.	Top 5 Products by Rating × Reviews:
-o	Use rating * rating_count to rank.
-________________________________________
-Dashboard Development
-Key Metrics Displayed:
-•	Total potential revenue
-•	Average product rating
-•	Total reviews
-•	Count of products
-•	Products with ≥50% discount
-•	Products with ≥1000 reviews
-Visualizations Included:
-•	Column Charts:
-o	Average discount by category
-o	Product count per category
-o	Reviews by product
-o	Price comparisons by category
-o	Potential revenue per category
-•	Pie Chart: Discount percentage by category
-•	Doughnut Chart: Unique products by price range
-•	Scatter Plot: Rating vs Discount
-•	Column Chart: Top products by rating × reviews
-•	Picture Display: Highest-rated products
-•	Interactive Filters: Category, Price Range
-________________________________________
+## Step 2: Data Analysis Using Pivot Tables- see attached Visualization Dashboard for results
+
+### 1.	Average Discount by Category:
+-	Result: 46%
+-	Rows: category | Values: Average of discount_percentage
+  
+### 2.	Products per Category:
+-	Result: 73,614
+-	Rows: category | Values: Count of product_id
+  
+### 3.	Total Reviews per Category:
+-	Result: 1,029,234,871
+-	Values: Sum of rating_count
+  
+### 4.	Highest Rated Products:
+-	E.g., Syncwire Ltg To USB Cable, Amazon Basics Wireless Mouse, Redtech USB-C Cable
+-	Rating: 5.0
+  
+### 5.	Average Actual vs Discounted Price by Category:
+-	Avg Actual: £4,491 | Avg Discounted: £2,473
+
+### 6.	Top Reviewed Products:
+-	E.g., Aircase Laptop Bag, Spigen Screen Protector
+-	Review Count: 192
+  
+### 7.	Products with ≥50% Discount:
+-	Count: 32,767
+  
+### 8.	Rating Distribution:
+-	3.0: 193 | 4.0: 8,296 | 5.0: 90
+  
+### 9.	Total Potential Revenue:
+-	Sum of actual_price * rating_count per category
+  
+### 10.	Unique Products by Price Range:
+-	Buckets: Under 200, 200–500, Above 500
+  
+### 11.	Rating vs Discount Relationship:
+-	Use a scatter plot:
+    -	X-axis: discount_percentage
+    -	Y-axis: rating
+      
+### 12.	Products with <1,000 Reviews:
+-	Use a filter or formula: =IF(rating_count < 1000, 1, 0)
+  
+### 13.	Categories with Highest Discounts:
+-	Use Pivot Table: Max of discount_percentage
+  
+### 14.	Top 5 Products by Rating × Reviews:
+-	Use rating * rating_count to rank
+
+## Dashboard Development
+### Key Metrics Displayed:
+-	Total potential revenue
+-	Average product rating
+-	Total reviews
+-	Count of products
+-	Products with ≥50% discount
+-	Products with ≥1000 reviews
+  
+### Visualizations Included:
+-	Column Charts:
+    -	Average discount by category
+    -	Product count per category
+    -	Reviews by product
+    -	Price comparisons by category
+    -	Potential revenue per category
+-	Pie Chart: Discount percentage by category
+-	Doughnut Chart: Unique products by price range
+-	Scatter Plot: Rating vs Discount
+-	Column Chart: Top products by rating × reviews
+-	Picture Display: Highest-rated products
+-	Interactive Filters: Category, Price Range
+
 
 
 
