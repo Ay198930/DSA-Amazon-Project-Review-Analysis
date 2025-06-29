@@ -41,8 +41,119 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
 
 ### 4. Standardize Text Fields
 -	Remove line breaks in fields like review_content:
-    -	Replace `#(lf)` or #(cr)` with space
+    -	Replace `#(lf)` or `#(cr)` with space
 -	Convert text to lowercase or capitalize as required:
-    -	Use `Transform → Format → Lowercase / Capitalize` Each Word.
+    -	Use `Transform → Format → Lowercase / Capitalize` Each Word
+
+**Column-Specific Cleaning**
+### A. review_title
+-	Trim spaces and replace `", "` with a temporary delimiter `"|"`.
+-	Replace internal commas with `"; "` to preserve title integrity.
+-	Replace placeholders like `"NA"` or `"-"` with blanks.
+-	Split by `"|"` into rows, then restore original commas.
+-	Capitalize each word and remove unwanted characters.
+  
+### B. user_name
+-	Trim whitespace and standardize delimiters.
+-	Replace placeholders with blanks.
+-	Split names by comma into individual rows.
+-	Capitalize names and remove special characters.
+-	Remove duplicate user entries.
+  
+### C. category
+-	Split hierarchical values using delimiter `|` into:
+    -	`MainCategory, SubCategory1, SubCategory2`.
+-	Trim whitespace, capitalize, and standardize category names.
+-	Replace null values with `"Uncategorized"`.
+-	Consolidate similar entries (e.g., "Electronic" → "Electronics").
+
+**Product Categories Outcome**
+-	Electronics
+-	Home & Kitchen
+-	Computers & Accessories
+-	Musical Instruments
+-	Office Products
+-	Home Improvement
+-	Car & Motorbike
+-	Toys & Games
+-	Health & Personal Care
+
+### D. product_name
+•	Trim spaces, remove line breaks, and capitalize product names.
+•	Optionally shorten long names using a custom column formula:
+  `= Text.Start([product_name], 30) & "...".`
+
+**Other Data Preparation Tasks**
+-	Convert actual_price, discounted_price, and rating columns from text to numerical types.
+-	Handle missing values in rating_count by replacing them with 0.
+-	Create derived columns for easier analysis:
+    -	high_discount: = IF(discount_percentage >= 0.5, 1, 0)
+    -	potential_revenue: = actual_price * rating_count
+    -	rating_x_count: = rating * rating_count
+    -	price_bucket:
+    -	= `IF([actual_price] < 200, "Under 200"`,
+        -	`IF([actual_price] <= 500, "200–500"`,
+        -	`IF([actual_price] > 500, "Above 500", "Blank")))`
+
+Step 2: Data Analysis Using Pivot Tables- see attached Visualization Dashboard for results
+1.	Average Discount by Category:
+o	Result: 46%
+o	Rows: category | Values: Average of discount_percentage.
+2.	Products per Category:
+o	Result: 73,614
+o	Rows: category | Values: Count of product_id.
+3.	Total Reviews per Category:
+o	Result: 1,029,234,871
+o	Values: Sum of rating_count.
+4.	Highest Rated Products:
+o	E.g., Syncwire Ltg To USB Cable, Amazon Basics Wireless Mouse, Redtech USB-C Cable
+o	Rating: 5.0
+5.	Average Actual vs Discounted Price by Category:
+o	Avg Actual: £4,491 | Avg Discounted: £2,473
+6.	Top Reviewed Products:
+o	E.g., Aircase Laptop Bag, Spigen Screen Protector
+o	Review Count: 192
+7.	Products with ≥50% Discount:
+o	Count: 32,767
+8.	Rating Distribution:
+o	3.0: 193 | 4.0: 8,296 | 5.0: 90
+9.	Total Potential Revenue:
+o	Sum of actual_price * rating_count per category.
+10.	Unique Products by Price Range:
+o	Buckets: Under 200, 200–500, Above 500
+11.	Rating vs Discount Relationship:
+o	Use a scatter plot:
+	X-axis: discount_percentage
+	Y-axis: rating
+12.	Products with <1,000 Reviews:
+o	Use a filter or formula: =IF(rating_count < 1000, 1, 0)
+13.	Categories with Highest Discounts:
+o	Use Pivot Table: Max of discount_percentage
+14.	Top 5 Products by Rating × Reviews:
+o	Use rating * rating_count to rank.
+________________________________________
+Dashboard Development
+Key Metrics Displayed:
+•	Total potential revenue
+•	Average product rating
+•	Total reviews
+•	Count of products
+•	Products with ≥50% discount
+•	Products with ≥1000 reviews
+Visualizations Included:
+•	Column Charts:
+o	Average discount by category
+o	Product count per category
+o	Reviews by product
+o	Price comparisons by category
+o	Potential revenue per category
+•	Pie Chart: Discount percentage by category
+•	Doughnut Chart: Unique products by price range
+•	Scatter Plot: Rating vs Discount
+•	Column Chart: Top products by rating × reviews
+•	Picture Display: Highest-rated products
+•	Interactive Filters: Category, Price Range
+________________________________________
+
 
 
