@@ -34,3 +34,15 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
 ### C. Split Comma-Separated Fields
 - For columns:  
   `Transform → Split Column → By Delimiter (Comma) → "Each occurrence" → Columns`
+
+### 3. Remove Duplicates
+-	For key fields like review_id, remove duplicates by
+  -	Right-click column → Remove Duplicates
+
+### 4. Standardize Text Fields
+-	Remove line breaks in fields like review_content:
+    -	Replace `#(lf)` or #(cr)` with space
+-	Convert text to lowercase or capitalize as required:
+    -	Use `Transform → Format → Lowercase / Capitalize` Each Word.
+
+
