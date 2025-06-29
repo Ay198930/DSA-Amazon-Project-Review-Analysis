@@ -4,6 +4,14 @@ I was tasked with the responsibility of analyzing product and customer review da
 # Amazon Product Review Dataset: Data Cleaning, Analysis & Dashboard Insights
 ![Amazon Dashboard Visualization](https://github.com/user-attachments/assets/d7fea85b-1e2e-4c81-9c9e-28320a7a6db9)
 
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Step 1: Data Cleaning Using Power Query](#step-1-data-cleaning-using-power-query)
+  - [1. Load Data into Power Query](#1-load-data-into-power-query)
+- [Step 2: Data Analysis Using Pivot Tables](#step-2-data-analysis-using-pivot-tables--see-attached-visualization-dashboard-for-results)
+- [Dashboard Development](#dashboard-development)
+  - [Recommendations](#recommendations)
+  
 ## Project Overview
 The dataset comprises 1,465 Amazon products across 16 columns, containing aggregated product and review information. Before performing any analysis, a comprehensive data cleaning process was conducted using Power Query in Excel, followed by insightful analysis and dashboard visualization using pivot tables and charts.
 
