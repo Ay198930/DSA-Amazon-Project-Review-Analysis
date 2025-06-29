@@ -10,7 +10,8 @@ I was tasked with the responsibility of analyzing product and customer review da
   - [1. Load Data into Power Query](#1-load-data-into-power-query)
 - [Step 2: Data Analysis Using Pivot Tables](#step-2-data-analysis-using-pivot-tables--see-attached-visualization-dashboard-for-results)
 - [Dashboard Development](#dashboard-development)
-  - [Recommendations](#recommendations)
+- [Key Findings](#key-findings)
+- [Recommendations](#recommendations)
   
 ## Project Overview
 The dataset comprises 1,465 Amazon products across 16 columns, containing aggregated product and review information. Before performing any analysis, a comprehensive data cleaning process was conducted using Power Query in Excel, followed by insightful analysis and dashboard visualization using pivot tables and charts.
