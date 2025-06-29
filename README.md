@@ -171,6 +171,20 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
 -	Picture Display: Highest-rated products
 -	Interactive Filters: Category, Price Range
 
+## Key Findings
+
+### Top Insights
+1. **Revenue Potential**: Computers & Accessories generates the highest potential revenue (£3,815.45B)
+2. **Discount Trends**: Average discount across categories is 46%, with highest discounts in Home Improvement (57%)
+3. **Product Ratings**: Average product rating is 4.08, with top-rated products achieving 5.0
+4. **Review Volume**: Electronics has the highest review count (509M reviews)
+5. **High-Discount Products**: 32,767 products have ≥50% discount
+
+### Recommendations
+- **Focus Marketing** on high-rated products in Computers & Accessories and Electronics
+- **Monitor Pricing** in Home Improvement where discounts are deepest
+- **Improve Engagement** for products with <1,000 reviews to boost visibility
+- **Leverage Top Products** like Syncwire USB Cable and Amazon Basics Mouse as benchmarks
 
 
 
