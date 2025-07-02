@@ -21,7 +21,8 @@ The primary data source utilized in this analysis is Amazon Case Study.xlsx, an 
 
 **Tools Used:**  
 - Microsoft Excel for Data Cleaning and Visualization [Download Here](https://www.microsoft.com/en-us/microsoft-365/download-office) 
-- Power Query for ETL processes  
+- Power Query for ETL processes
+- Pivot Table for analysis  
 
 ## Step 1: Data Cleaning Using Power Query
 
