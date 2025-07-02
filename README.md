@@ -4,7 +4,7 @@ I was tasked with the responsibility of analyzing product and customer review da
 # Amazon Product Review Dataset: Data Cleaning, Analysis & Dashboard Insights
 ![Amazon Dashboard Visualization](https://github.com/user-attachments/assets/d7fea85b-1e2e-4c81-9c9e-28320a7a6db9)
 
-## Table of Contents
+## 📖 Table of Contents
 - [Project Overview](#project-overview)
 - [Step 1: Data Cleaning Using Power Query](#step-1-data-cleaning-using-power-query)
   - [1. Load Data into Power Query](#1-load-data-into-power-query)
